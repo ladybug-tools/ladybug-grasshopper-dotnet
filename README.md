@@ -1,7 +1,5 @@
 [![Build Status](https://travis-ci.org/ladybug-tools/ladybug-grasshopper-dotnet.svg?branch=master)](https://travis-ci.org/ladybug-tools/ladybug-grasshopper-dotnet)
 
-[![IronPython](https://img.shields.io/badge/ironpython-2.7-red.svg)](https://github.com/IronLanguages/ironpython2/releases/tag/ipy-2.7.8/)
-
 # ladybug-grasshopper
 
 :beetle: :green_book: C# - .gha files of the Ladybug plugin for Grasshopper
