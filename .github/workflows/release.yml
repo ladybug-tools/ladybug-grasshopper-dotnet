@@ -12,7 +12,10 @@ jobs:
     steps:
       - name: "Checkout Master Branch"
         uses: actions/checkout@v2
-  
+        
+      - name: Setup MSbuild
+        uses: microsoft/setup-msbuild@v1.0.0
+
       - name: Compile  
         working-directory: src/Ladybug.Grasshopper
         run: |
