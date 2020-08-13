@@ -3,11 +3,14 @@
         "@semantic-release/commit-analyzer",
         "@semantic-release/release-notes-generator",
         "@semantic-release/github",
-        [
-            "@semantic-release/exec",
-            {
-                "publishCmd": "bash deploy.sh"
-            }
-        ]
+        {
+            "assets": [
+                {
+                    "path": "LadybugGrasshopper.zip",
+                    "name": "LadybugGrasshopper.zip",
+                    "label": "LadybugGrasshopper.zip"
+                }
+            ]
+        }
     ]
 }
