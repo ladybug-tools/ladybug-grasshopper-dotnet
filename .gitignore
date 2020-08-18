@@ -12,6 +12,7 @@ tox.ini
 /.vscode
 .eggs
 *.code-workspace
+*.gha
 
 .vs
 bin
