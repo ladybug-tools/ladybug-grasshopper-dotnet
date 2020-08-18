@@ -2,6 +2,6 @@ prune src*
 prune .github*
 exclude .gitignore
 exclude .releaserc.json
+exclude *.md
 include *.gha
 recursive-exclude * __pycache__
-recursive-exclude * *.md
