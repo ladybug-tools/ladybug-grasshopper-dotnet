@@ -16,3 +16,5 @@ tox.ini
 .vs
 bin
 obj
+dist
+build

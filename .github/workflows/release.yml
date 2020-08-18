@@ -6,13 +6,13 @@ on:
 
 jobs:
   build:
-    name: "Build and release the Rhino Plugin"
+    name: "Build and release"
     runs-on: windows-latest
 
     steps:
       - name: "Checkout Master Branch"
         uses: actions/checkout@v2
-        
+
       - name: Setup MSbuild
         uses: microsoft/setup-msbuild@v1.0.0
 
@@ -31,3 +31,13 @@ jobs:
       - run: npx semantic-release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      - name: Release to PyPI
+        run: |
+          python -m pip install twine==3.2.0 setuptools wheel
+          
+          # gha file is src\Ladybug.Grasshopper\bin\net45\*.gha
+          echo "Building distribution"
+          python pypi_setup.py sdist bdist_wheel
+          echo "Pushing new version to PyPi"
+          twine upload dist/* -u ${{ secrets.PYPI_USERNAME }} -p ${{ secrets.PYPI_PASSWORD }}
