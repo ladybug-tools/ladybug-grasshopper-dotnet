@@ -1,0 +1,7 @@
+include src/Ladybug.Grasshopper/bin/net45/*.gha
+prune src*
+prune .github*
+exclude .gitignore
+exclude .releaserc.json
+recursive-exclude * __pycache__
+recursive-exclude * *.md
