@@ -38,6 +38,6 @@ jobs:
           
           # gha file is src\Ladybug.Grasshopper\bin\net45\*.gha
           echo "Building distribution"
-          python pypi_setup.py sdist bdist_wheel
+          python setup.py sdist bdist_wheel
           echo "Pushing new version to PyPi"
           twine upload dist/* -u ${{ secrets.PYPI_USERNAME }} -p ${{ secrets.PYPI_PASSWORD }}
