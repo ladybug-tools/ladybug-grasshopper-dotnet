@@ -3,5 +3,5 @@ prune .github*
 exclude .gitignore
 exclude .releaserc.json
 exclude *.md
-include *.gha
+recursive-include ladybug_grasshopper_dotnet *.gha
 recursive-exclude * __pycache__

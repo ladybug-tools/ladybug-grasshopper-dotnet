@@ -37,8 +37,11 @@ jobs:
           python -m pip install twine==3.2.0 setuptools wheel
           
           # gha file is src\Ladybug.Grasshopper\bin\net45\*.gha
-          cp src\Ladybug.Grasshopper\bin\net45\*.gha .\
-          
+          mkdir ladybug_grasshopper_dotnet
+          cp src\Ladybug.Grasshopper\bin\net45\*.gha .\ladybug_grasshopper_dotnet\
+          echo ""  > .\ladybug_grasshopper_dotnet\__init__.py
+          ls .\ladybug_grasshopper_dotnet\
+
           echo "Building distribution"
           python setup.py sdist bdist_wheel
           echo "Pushing new version to PyPi"
