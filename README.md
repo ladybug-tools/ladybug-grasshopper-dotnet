@@ -1,4 +1,4 @@
-[![Build Status](https://github.com/ladybug-tools/ladybug-grasshopper-dotnet/workflows/CI/badge.svg)](https://github.com/ladybug-tools/ladybug-grasshopper-dotnet/actions)
+[![Build Status](https://github.com/ladybug-tools/ladybug-grasshopper-dotnet/workflows/CD/badge.svg)](https://github.com/ladybug-tools/ladybug-grasshopper-dotnet/actions)
 
 # ladybug-grasshopper-dotnet
 
