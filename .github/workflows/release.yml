@@ -28,14 +28,11 @@ jobs:
           Compress-Archive -U -Path src\Ladybug.Grasshopper\bin\net45\* -DestinationPath LadybugGrasshopper
           ls
 
-      - name: run semantic release
-        id: new_release
-        run: |
-          nextRelease="`npx semantic-release --dryRun | findstr 'Published release \K.*? ' || true`"
-          npx semantic-release
-          echo "::set-output name=tag::$nextRelease"
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v2
+        id: semantic
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: Release to PyPI
         run: |
@@ -52,7 +49,7 @@ jobs:
           echo "Pushing new version to PyPi"
           twine upload dist/* -u ${{ secrets.PYPI_USERNAME }} -p ${{ secrets.PYPI_PASSWORD }}
     outputs:
-      tag: ${{ steps.new_release.outputs.tag }}
+      tag: ${{ steps.semantic.outputs.new_release_version  }}
 
   deploy:
     name: Deploy to Dependent Repos
