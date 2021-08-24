@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.org/ladybug-tools/ladybug-grasshopper-dotnet.svg?branch=master)](https://travis-ci.org/ladybug-tools/ladybug-grasshopper-dotnet)
+[![Build Status](https://github.com/ladybug-tools/ladybug-grasshopper-dotnet/workflows/CI/badge.svg)](https://github.com/ladybug-tools/ladybug-grasshopper-dotnet/actions)
 
-# ladybug-grasshopper
+# ladybug-grasshopper-dotnet
 
-:beetle: :green_book: C# - .gha files of the Ladybug plugin for Grasshopper
+Contains the .gha files of the Ladybug plugin for Grasshopper
 
 This repository contains only the C# `.gha` Grasshopper components for the Ladybug Tools
 Grasshopper plugin. For the rest of the Grasshopper Plugin (written in IronPython) see
