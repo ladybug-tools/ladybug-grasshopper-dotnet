@@ -9,7 +9,7 @@ setuptools.setup(
     setup_requires=['setuptools_scm'],
     author="Ladybug Tools",
     author_email="info@ladybug.tools",
-    description="GHA files for the Ladybug Grasshopper Plugin.",
+    description="Contains the .gha files for the Ladybug Grasshopper Plugin.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/ladybug-tools/ladybug-grasshopper-dotnet",
