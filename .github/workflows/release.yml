@@ -51,7 +51,6 @@ jobs:
           python setup.py sdist bdist_wheel
           echo "Pushing new version to PyPi"
           twine upload dist/* -u ${{ secrets.PYPI_USERNAME }} -p ${{ secrets.PYPI_PASSWORD }}
-
     outputs:
       tag: ${{ steps.new_release.outputs.tag }}
 
@@ -59,7 +58,7 @@ jobs:
     name: Deploy to Dependent Repos
     runs-on: ubuntu-latest
     needs: build
-    if: contains(needs.build.outputs.tag, '.')
+    if: ${{ github.ref == 'refs/heads/master' && github.repository_owner == 'ladybug-tools' && contains(needs.build.outputs.tag, '.') }}
     steps:
       - name: Update lbt-grasshopper
         env:
