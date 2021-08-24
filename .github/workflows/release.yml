@@ -64,5 +64,5 @@ jobs:
         run: |
           curl -X POST https://api.github.com/repos/$DISPATCH_REPO/dispatches \
           -H "Accept: application/vnd.github.everest-preview+json" \
-          -d '{"event_type": "ladybug_grasshopper_release", "client_payload": {"version": "${{ needs.build.outputs.tag }}"}}' \
+          -d '{"event_type": "ladybug_grasshopper_dotnet_release", "client_payload": {"version": "${{ needs.build.outputs.tag }}"}}' \
           -u ladybugbot:$DEPS_TOKEN
