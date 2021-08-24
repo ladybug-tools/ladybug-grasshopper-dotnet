@@ -18,9 +18,9 @@ namespace LadybugGrasshopper
         {
         }
 
-        
-        
-        
+        public override GH_Exposure Exposure => GH_Exposure.primary | GH_Exposure.obscure;
+
+
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddGeometryParameter("K", "K", "A list of Rhino objects that associated with sortable layers", GH_ParamAccess.list);
