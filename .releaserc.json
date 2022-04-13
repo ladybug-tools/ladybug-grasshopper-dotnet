@@ -6,9 +6,9 @@
         {
             "assets": [
                 {
-                    "path": "LadybugGrasshopper.zip",
-                    "name": "LadybugGrasshopper.zip",
-                    "label": "LadybugGrasshopper.zip"
+                    "path": "ladybug_grasshopper_dotnet.zip",
+                    "name": "ladybug_grasshopper_dotnet.zip",
+                    "label": "ladybug_grasshopper_dotnet.zip"
                 }
             ]
         }
