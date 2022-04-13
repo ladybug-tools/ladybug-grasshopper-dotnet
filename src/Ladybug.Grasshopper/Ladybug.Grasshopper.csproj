@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>NET45</TargetFramework>
+    <TargetFramework>NET452</TargetFramework>
     <RootNamespace>LadybugGrasshopper</RootNamespace>
     <Copyright>Copyright ©  2022</Copyright>
     <Authors>Ladybug Tools</Authors>
@@ -10,13 +10,13 @@
     <Version>0.0.0.1</Version>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
     <OutputPath>bin\</OutputPath>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
     <OutputPath>bin\</OutputPath>
   </PropertyGroup>
 
