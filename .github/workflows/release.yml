@@ -17,15 +17,22 @@ jobs:
         uses: microsoft/setup-msbuild@v1.0.2
 
       - name: Compile  
-        working-directory: src/Ladybug.Grasshopper
+        working-directory: src
         run: |
           dotnet restore
           msbuild /p:Configuration=Release /restore
-          ls bin -R
+          ls Ladybug.Grasshopper/bin -R
+          ls Ladybug.Executor/bin -R
+
 
       - name: Zip Build Artifact
+        shell: bash
         run: |
-          Compress-Archive -U -Path src\Ladybug.Grasshopper\bin\net45\* -DestinationPath LadybugGrasshopper
+          mkdir ladybug_grasshopper_dotnet -p
+          cp src/Ladybug.Grasshopper/bin/net452/*.gha ./ladybug_grasshopper_dotnet -r
+          cp src/Ladybug.Executor/bin/Release/* ./ladybug_grasshopper_dotnet -r
+       
+          7z a ladybug_grasshopper_dotnet.zip ./ladybug_grasshopper_dotnet/*
           ls
 
       - name: Semantic Release
@@ -38,9 +45,6 @@ jobs:
         run: |
           python -m pip install twine==3.2.0 setuptools wheel
           
-          # gha file is src\Ladybug.Grasshopper\bin\net45\*.gha
-          mkdir ladybug_grasshopper_dotnet
-          cp src\Ladybug.Grasshopper\bin\net45\*.gha .\ladybug_grasshopper_dotnet\
           echo ""  > .\ladybug_grasshopper_dotnet\__init__.py
           ls .\ladybug_grasshopper_dotnet\
 
