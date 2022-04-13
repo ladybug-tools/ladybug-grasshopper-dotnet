@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>NET45</TargetFramework>
     <RootNamespace>LadybugGrasshopper</RootNamespace>
-    <Copyright>Copyright ©  2020</Copyright>
+    <Copyright>Copyright ©  2022</Copyright>
     <Authors>Ladybug Tools</Authors>
     <AssemblyVersion>0.0.0.1</AssemblyVersion>
     <FileVersion>1.0.0.1</FileVersion>
