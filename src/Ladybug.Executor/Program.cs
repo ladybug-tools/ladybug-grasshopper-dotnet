@@ -12,7 +12,7 @@ namespace Ladybug.Executor
 
                 if (args == null || args.Length == 0)
                 {
-                    Console.WriteLine($"Invalid argument!");
+                    Console.Error.WriteLine($"Invalid argument!");
                     return;
                 }
 
@@ -21,7 +21,7 @@ namespace Ladybug.Executor
 
                 if (string.IsNullOrEmpty(program))
                 {
-                    Console.WriteLine($"Invalid program!");
+                    Console.Error.WriteLine($"Invalid program!");
                     return;
                 }
                 var arguments = string.Join(" ", cleaned.Skip(1));
@@ -63,15 +63,16 @@ namespace Ladybug.Executor
             }
             finally
             {
-                Console.WriteLine("Press any key to close!");
-                Console.ReadKey();
+                //Console.WriteLine("Press any key to close!");
+                //Console.ReadKey();
             }
             
         }
 
         private static void P_ErrorDataReceived(object sender, System.Diagnostics.DataReceivedEventArgs e)
         {
-            Console.WriteLine(e?.Data);
+            //Console.WriteLine(e?.Data);
+            Console.Error.WriteLine(e?.Data);
         }
 
         private static void P_OutputDataReceived(object sender, System.Diagnostics.DataReceivedEventArgs e)
