@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>NET48</TargetFramework>
+		<TargetFrameworks>net48</TargetFrameworks>
 		<RootNamespace>LadybugGrasshopper</RootNamespace>
 		<Copyright>Copyright © 2024</Copyright>
 		<Authors>Ladybug Tools</Authors>
@@ -9,6 +9,7 @@
 		<FileVersion>1.0.0.1</FileVersion>
 		<Version>0.0.0.1</Version>
 		<TargetExt>.gha</TargetExt>
+		<UseWindowsForms>true</UseWindowsForms>
 		<OutputPath>bin\</OutputPath>
 	</PropertyGroup>
 
@@ -19,9 +20,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Grasshopper" Version="6.0.18016.23451">
-			<ExcludeAssets>runtime</ExcludeAssets>
-		</PackageReference>
+		<PackageReference Include="Grasshopper" Version="6.23.20055.13111" ExcludeAssets="runtime" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -40,15 +39,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="ComponentAttribute\" />
-		<Folder Include="Component\" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<Reference Include="System.Windows.Forms" />
 	</ItemGroup>
 
-	<PropertyGroup Condition="$([MSBuild]::IsOSPlatform(Windows))">
+	<PropertyGroup>
 		<StartProgram>C:\Program Files\Rhino 8\System\Rhino.exe</StartProgram>
 		<StartAction>Program</StartAction>
 		<StartArguments>/nosplash</StartArguments>
