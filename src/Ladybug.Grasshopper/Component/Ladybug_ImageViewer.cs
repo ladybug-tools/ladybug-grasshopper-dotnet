@@ -45,7 +45,7 @@ namespace LadybugGrasshopper
         private int GifFrameDuration = 100;
         
         public Ladybug_ImageViewer()
-          : base("LB ImageViewer", "ImageViewer",
+          : base("LB Image Viewer", "ImageViewer",
               "Preview image files\n\nPlease find the source code from:\nhttps://github.com/ladybug-tools/ladybug-grasshopper-dotnet",
               "Ladybug", "4 :: Extra")
         {

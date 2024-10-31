@@ -12,7 +12,7 @@ namespace LadybugGrasshopper
     public class Ladybug_SortByLayers : GH_Component
     {
         public Ladybug_SortByLayers()
-          : base("LB SortByLayers", "SortByLayers",
+          : base("LB Sort by Layers", "SortByLayers",
               "Sort and group Rhino objects by layers.\n\nPlease find the source code from:\nhttps://github.com/ladybug-tools/ladybug-grasshopper-dotnet",
               "Ladybug", "4 :: Extra")
         {

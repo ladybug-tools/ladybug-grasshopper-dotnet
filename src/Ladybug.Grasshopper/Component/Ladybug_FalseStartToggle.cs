@@ -14,7 +14,7 @@ namespace LadybugGrasshopper
         /// </summary>
         public Ladybug_FalseStartToggle()
         {
-            this.Name = "LB FalseStartToggle";
+            this.Name = "LB FalseStart Toggle";
             this.NickName = "FalseStart";
             this.Category = "Ladybug";
             this.SubCategory = "4 :: Extra";
