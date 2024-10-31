@@ -1,57 +1,57 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>NET452</TargetFramework>
-    <RootNamespace>LadybugGrasshopper</RootNamespace>
-    <Copyright>Copyright ©  2022</Copyright>
-    <Authors>Ladybug Tools</Authors>
-    <AssemblyVersion>0.0.0.1</AssemblyVersion>
-    <FileVersion>1.0.0.1</FileVersion>
-    <Version>0.0.0.1</Version>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>NET48</TargetFramework>
+		<RootNamespace>LadybugGrasshopper</RootNamespace>
+		<Copyright>Copyright © 2024</Copyright>
+		<Authors>Ladybug Tools</Authors>
+		<AssemblyVersion>0.0.0.1</AssemblyVersion>
+		<FileVersion>1.0.0.1</FileVersion>
+		<Version>0.0.0.1</Version>
+		<TargetExt>.gha</TargetExt>
+		<OutputPath>bin\</OutputPath>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)'=='Release'">
-    <DebugType>none</DebugType>
-    <DebugSymbols>false</DebugSymbols>
-    <OutputPath>bin\</OutputPath>
-  </PropertyGroup>
+	<PropertyGroup Condition="$(Configuration.StartsWith(`Release`))">
+		<Optimization>true</Optimization>
+		<DebugSymbols>false</DebugSymbols>
+		<DebugType>none</DebugType>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
-    <OutputPath>bin\</OutputPath>
-  </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Grasshopper" Version="6.0.18016.23451">
+			<ExcludeAssets>runtime</ExcludeAssets>
+		</PackageReference>
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Grasshopper" Version="6.0.18016.23451">
-      <ExcludeAssets>runtime</ExcludeAssets>
-    </PackageReference>
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Update="Resources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Update="Resources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Update="Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="ComponentAttribute\" />
+		<Folder Include="Component\" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ComponentAttribute\" />
-    <Folder Include="Component\" />
-  </ItemGroup>
+	<ItemGroup>
+		<Reference Include="System.Windows.Forms" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="System.Windows.Forms" />
-  </ItemGroup>
-
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="Copy &quot;$(TargetPath)&quot; &quot;$(TargetDir)$(ProjectName).gha&quot;&#xD;&#xA;Erase &quot;$(TargetPath)&quot;" />
-  </Target>
+	<PropertyGroup Condition="$([MSBuild]::IsOSPlatform(Windows))">
+		<StartProgram>C:\Program Files\Rhino 8\System\Rhino.exe</StartProgram>
+		<StartAction>Program</StartAction>
+		<StartArguments>/nosplash</StartArguments>
+	</PropertyGroup>
 
 </Project>
