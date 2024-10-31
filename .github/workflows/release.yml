@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - name: "Checkout Master Branch"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup MSbuild
-        uses: microsoft/setup-msbuild@v1.0.2
+        uses: microsoft/setup-msbuild@v2
 
       - name: Compile  
         working-directory: src
@@ -29,14 +29,14 @@ jobs:
         shell: bash
         run: |
           mkdir ladybug_grasshopper_dotnet -p
-          cp src/Ladybug.Grasshopper/bin/net452/*.gha ./ladybug_grasshopper_dotnet -r
+          cp src/Ladybug.Grasshopper/bin/net48/*.gha ./ladybug_grasshopper_dotnet -r
           cp src/Ladybug.Executor/bin/Release/* ./ladybug_grasshopper_dotnet -r
        
           7z a ladybug_grasshopper_dotnet.zip ./ladybug_grasshopper_dotnet/*
           ls
 
       - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v2
+        uses: cycjimmy/semantic-release-action@v4
         id: semantic
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
