@@ -2,15 +2,15 @@
     "plugins": [
         "@semantic-release/commit-analyzer",
         "@semantic-release/release-notes-generator",
-        "@semantic-release/github",
-        {
-            "assets": [
-                {
-                    "path": "ladybug_grasshopper_dotnet.zip",
-                    "name": "ladybug_grasshopper_dotnet.zip",
-                    "label": "ladybug_grasshopper_dotnet.zip"
-                }
-            ]
-        }
+        [
+            "@semantic-release/github",
+            {
+                "assets": [
+                    {
+                        "path": "ladybug_grasshopper_dotnet.zip"
+                    }
+                ]
+            }
+        ]
     ]
 }
