@@ -23,7 +23,7 @@ namespace LadybugGrasshopper
         {
         }
         public override Guid ComponentGuid => new Guid("BF8CF596-EAAF-460A-8B51-97E53B0197FD");
-        protected override System.Drawing.Bitmap Icon => null;
+        protected override System.Drawing.Bitmap Icon => Resources.samples;
 
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
