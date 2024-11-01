@@ -133,6 +133,16 @@ namespace LadybugGrasshopper {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap samples {
+            get {
+                object obj = ResourceManager.GetObject("samples", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SortByLayers {
             get {
                 object obj = ResourceManager.GetObject("SortByLayers", resourceCulture);
