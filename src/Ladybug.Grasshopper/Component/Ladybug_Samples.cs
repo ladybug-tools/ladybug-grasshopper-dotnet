@@ -18,7 +18,7 @@ namespace LadybugGrasshopper
         List<List<string>> filesList = new List<List<string>>();
         public Ladybug_Samples()
           : base("LB Samples", "Samples",
-                "Load sample files\n\nPlease find the source code from:\nhttps://github.com/ladybug-tools/ladybug-grasshopper-dotnet",
+                "Load sample files",
                 "Ladybug", "4 :: Extra")
         {
         }
@@ -27,7 +27,7 @@ namespace LadybugGrasshopper
 
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
-            pManager.AddTextParameter("Directory", "_dir", "Additional folder path to load the sample files.", GH_ParamAccess.list);
+            pManager.AddTextParameter("Directory", "dir_", "Alternative folder path to load the sample files.", GH_ParamAccess.list);
             pManager[0].Optional = true;
         }
 
@@ -38,15 +38,18 @@ namespace LadybugGrasshopper
 
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            this.folderList = new List<string>();
-            this.filesList = new List<List<string>>();
-            var sampleDirs = GetSampleFolder();
-            var dirs = sampleDirs.ToList();
+            var dirs = new List<string>();
             DA.GetDataList(0, dirs);
+
+            if (dirs == null || !dirs.Any())
+                dirs = GetSampleFolder();
 
             dirs =  dirs.Distinct().Where(_ => Directory.Exists(_)).ToList();
             if (dirs.Count == 0)
                 throw new ArgumentException("No template folder was found!");
+
+            this.folderList = new List<string>();
+            this.filesList = new List<List<string>>();
 
             foreach (var dir in dirs)
             {
@@ -146,16 +149,15 @@ lbt_folder = lb_folders.ladybug_tools_folder
             var menu = new ToolStripDropDownMenu();
 
             var rootFolder = this.folderList.FirstOrDefault();
-            var topDirs = Directory.GetDirectories(rootFolder);
-
-            foreach (var item in topDirs)
+            
+            var rmenuItem = addFromFolder(rootFolder);
+            if (rmenuItem != null)
             {
-                var menuItem = addFromFolder(item);
-                if (menuItem == null)
-                    continue;
-                menu.Items.Add(menuItem);
-            }
+                var items = rmenuItem.DropDown.Items.OfType<ToolStripItem>().ToArray();
+                menu.Items.AddRange(items);
 
+            }
+            
             return menu;
         }
 
