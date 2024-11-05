@@ -13,13 +13,13 @@ namespace LadybugGrasshopper
     public class Ladybug_Samples : GH_Component
     {
         static Rhino.Runtime.PythonScript _script;
-       
+
         List<string> folderList = new List<string>();
         List<List<string>> filesList = new List<List<string>>();
         public Ladybug_Samples()
           : base("LB Samples", "Samples",
                 "Load sample files",
-                "Ladybug", "4 :: Extra")
+                "Ladybug", "5 :: Version")
         {
         }
         public override Guid ComponentGuid => new Guid("BF8CF596-EAAF-460A-8B51-97E53B0197FD");
@@ -44,7 +44,7 @@ namespace LadybugGrasshopper
             if (dirs == null || !dirs.Any())
                 dirs = GetSampleFolder();
 
-            dirs =  dirs.Distinct().Where(_ => Directory.Exists(_)).ToList();
+            dirs = dirs.Distinct().Where(_ => Directory.Exists(_)).ToList();
             if (dirs.Count == 0)
                 throw new ArgumentException("No template folder was found!");
 
@@ -60,10 +60,10 @@ namespace LadybugGrasshopper
                     this.filesList.Add(fs);
                 }
             }
-            DA.SetDataList(0, this.filesList.SelectMany(_=>_));
+            DA.SetDataList(0, this.filesList.SelectMany(_ => _));
 
             this.templateMenu = GetMenu();
-            
+
         }
 
         private static List<string> GetSampleFolder()
@@ -98,7 +98,7 @@ lbt_folder = lb_folders.ladybug_tools_folder
                 }
             }
             catch (Exception) { }
-            
+
             return folders;
         }
 
@@ -107,7 +107,7 @@ lbt_folder = lb_folders.ladybug_tools_folder
             var moveX = this.Attributes.Bounds.Left - 80 - FromLocation.X;
             var moveY = this.Attributes.Bounds.Y + 180 - FromLocation.Y;
             var loc = new System.Drawing.Point(Convert.ToInt32(moveX), Convert.ToInt32(moveY));
-            
+
             return new Size(loc);
         }
 
@@ -135,7 +135,7 @@ lbt_folder = lb_folders.ladybug_tools_folder
                 //move to where this component is...
                 var box = docTemp.BoundingBox(false);
                 var vec = GetMoveVector(box.Location);
-                docTemp.TranslateObjects(vec ,true);
+                docTemp.TranslateObjects(vec, true);
 
                 docTemp.ExpireSolution();
                 var docCurrent = canvasCurrent.Document;
@@ -149,7 +149,7 @@ lbt_folder = lb_folders.ladybug_tools_folder
             var menu = new ToolStripDropDownMenu();
 
             var rootFolder = this.folderList.FirstOrDefault();
-            
+
             var rmenuItem = addFromFolder(rootFolder);
             if (rmenuItem != null)
             {
@@ -157,7 +157,7 @@ lbt_folder = lb_folders.ladybug_tools_folder
                 menu.Items.AddRange(items);
 
             }
-            
+
             return menu;
         }
 
@@ -201,7 +201,7 @@ lbt_folder = lb_folders.ladybug_tools_folder
 
                 Menu_AppendItem(t.DropDown, name, ev, null, item);
             }
-           
+
             return t;
         }
 
@@ -210,11 +210,11 @@ lbt_folder = lb_folders.ladybug_tools_folder
             var att = new ComponentButtonAttributes(this);
             att.ButtonText = "Load a sample";
 
-            att.MouseDownEvent += (object loc) => this.templateMenu.Show((GH.GUI.Canvas.GH_Canvas)loc,(loc as GH.GUI.Canvas.GH_Canvas).CursorControlPosition);
+            att.MouseDownEvent += (object loc) => this.templateMenu.Show((GH.GUI.Canvas.GH_Canvas)loc, (loc as GH.GUI.Canvas.GH_Canvas).CursorControlPosition);
             this.Attributes = att;
 
         }
-        
+
     }
 
 
