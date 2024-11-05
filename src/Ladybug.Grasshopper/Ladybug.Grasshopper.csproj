@@ -45,7 +45,7 @@
 	<PropertyGroup>
 		<StartProgram>C:\Program Files\Rhino 8\System\Rhino.exe</StartProgram>
 		<StartAction>Program</StartAction>
-		<StartArguments>/nosplash</StartArguments>
+		<StartArguments>/nosplash /netfx</StartArguments>
 	</PropertyGroup>
 
 </Project>
