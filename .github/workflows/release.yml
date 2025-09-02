@@ -48,7 +48,7 @@ jobs:
 
       - name: Release to PyPI
         run: |
-          pip install -r dev-requirements.txt
+          python -m pip install twine==5.1.1 setuptools==75.1.0 wheel==0.44.0
           
           echo ""  > .\ladybug_grasshopper_dotnet\__init__.py
           ls .\ladybug_grasshopper_dotnet\
