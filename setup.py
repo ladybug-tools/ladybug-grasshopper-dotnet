@@ -17,7 +17,7 @@ setuptools.setup(
     include_package_data=True,
     install_requires=[],
     classifiers=[
-        "License :: OSI Approved :: GNU Affero General Public License v3",
+        "Programming Language :: C#",
         "Operating System :: OS Independent"
     ],
     license="AGPL-3.0"
