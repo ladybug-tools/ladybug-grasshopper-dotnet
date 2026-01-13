@@ -121,6 +121,9 @@
   <data name="Dragonfly" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Dragonfly.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="fairyfly" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\fairyfly.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="HB_Energy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\HB-Energy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

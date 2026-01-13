@@ -24,6 +24,7 @@ namespace LadybugGrasshopper
             GH.Instances.ComponentServer.AddCategoryIcon("Dragonfly", Resources.Dragonfly);
             GH.Instances.ComponentServer.AddCategoryIcon("HB-Radiance", Resources.HB_Radiance);
             GH.Instances.ComponentServer.AddCategoryIcon("HB-Energy", Resources.HB_Energy);
+            GH.Instances.ComponentServer.AddCategoryIcon("Fairyfly", Resources.fairyfly);
 
             GH.Instances.ComponentServer.AddCategoryShortName("Ladybug", "LB");
             GH.Instances.ComponentServer.AddCategorySymbolName("Ladybug", 'L');
@@ -39,6 +40,9 @@ namespace LadybugGrasshopper
 
             GH.Instances.ComponentServer.AddCategoryShortName("HB-Energy", "HB-E");
             GH.Instances.ComponentServer.AddCategorySymbolName("HB-Energy", 'E');
+
+            GH.Instances.ComponentServer.AddCategoryShortName("Fairyfly", "FF");
+            GH.Instances.ComponentServer.AddCategorySymbolName("Fairyfly", 'F');
             return GH_LoadingInstruction.Proceed;
         }
     }
