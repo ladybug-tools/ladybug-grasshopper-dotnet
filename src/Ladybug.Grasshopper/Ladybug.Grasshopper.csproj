@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFrameworks>net48</TargetFrameworks>
 		<RootNamespace>LadybugGrasshopper</RootNamespace>
-		<Copyright>Copyright © 2024</Copyright>
+		<Copyright>Copyright © 2026</Copyright>
 		<Authors>Ladybug Tools</Authors>
 		<AssemblyVersion>0.0.0.1</AssemblyVersion>
 		<FileVersion>1.0.0.1</FileVersion>
