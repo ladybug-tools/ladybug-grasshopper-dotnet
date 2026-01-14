@@ -1,8 +1,8 @@
 name: CD
 
-on: 
+on:
   push:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build:
@@ -19,9 +19,9 @@ jobs:
       - name: set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.12'
+          python-version: "3.12"
 
-      - name: Compile  
+      - name: Compile
         working-directory: src
         run: |
           dotnet restore
@@ -29,14 +29,13 @@ jobs:
           ls Ladybug.Grasshopper/bin -R
           ls Ladybug.Executor/bin -R
 
-
       - name: Zip Build Artifact
         shell: bash
         run: |
           mkdir ladybug_grasshopper_dotnet -p
           cp src/Ladybug.Grasshopper/bin/net48/*.gha ./ladybug_grasshopper_dotnet -r
           cp src/Ladybug.Executor/bin/Release/* ./ladybug_grasshopper_dotnet -r
-       
+
           7z a ladybug_grasshopper_dotnet.zip ./ladybug_grasshopper_dotnet/*
           ls
 
@@ -52,6 +51,8 @@ jobs:
           pip install -r dev-requirements.txt
 
           echo ""  > .\ladybug_grasshopper_dotnet\__init__.py
+          cp README.md .\ladybug_grasshopper_dotnet\
+          cp LICENSE .\ladybug_grasshopper_dotnet\
           ls .\ladybug_grasshopper_dotnet\
 
           echo "Building distribution"
