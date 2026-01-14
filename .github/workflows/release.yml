@@ -51,8 +51,6 @@ jobs:
           pip install -r dev-requirements.txt
 
           echo ""  > .\ladybug_grasshopper_dotnet\__init__.py
-          cp README.md .\ladybug_grasshopper_dotnet\
-          cp LICENSE .\ladybug_grasshopper_dotnet\
           ls .\ladybug_grasshopper_dotnet\
 
           echo "Building distribution"
